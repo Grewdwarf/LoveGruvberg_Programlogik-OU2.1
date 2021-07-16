@@ -1,0 +1,20 @@
+#coding=utf-8 
+
+Genom '#coding=utf-8' talar jag om för Python 
+att jag vill inkludera teckenkodning på 8-bitar.
+––––––––––––––––––––––––––––––
+
+"UTF-8" står för 'Unicode Transformation Format – 8-bit'. 
+
+Detta måste göras då Python initialt använder 'ASCII' 
+(American Standard Code for Information Interchange). 
+
+ASCII använder siffror för att representera text och konverterar tecken 
+till decimaler. En (kanske lite långsökt) liknelse av representationen är att
+det påminner om hur 'Hotkeys' fungerar.
+
+Exempelvis har 'A', 'B' och 'C' (versaler) nummerna; '65', '66' och '67'. 
+
+ASCII använder 7-bitar och kan därför beteckna max 128 tecken, dvs. två upphöjt 
+till sju (2^7) – eftersom att man här går efter en aritmetisk följd som kallas för
+Tvåpotens ("Power of two"), som ser ut –> 1, 2, 4, 8, 16, 32, 64, ...osv, osv...

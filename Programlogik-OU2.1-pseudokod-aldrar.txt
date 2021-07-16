@@ -1,0 +1,49 @@
+##---------------------------------------------------------------------------
+## Pseudokod för inlämningsuppgift OU2 deluppgift 1
+##
+## Meningen är att du ska översätta pseudokoden till motsvarande
+## Python-programsatser så att programmet går att köra.
+##
+## Informationsteknologi - Möjligheter och utmaningar, 1DT110
+## 2020-10/per.foyer@it.uu.se
+##
+## (Inledande #-tecken betyder att det som följer är en kommentar)
+##---------------------------------------------------------------------------
+
+sätt antal_år till noll     ### Startvärde (har inte börjat räkna ännu)
+sätt summa_år till noll     ### Startvärde (har inte börjat räkna ännu)
+sätt max_år   till noll     ### Ingen högsta ålder ännu
+sätt min_år   till 110      ### Väl tilltaget minvärde (ålder) att starta med
+
+sätt inmatat_år till minusett  ### Bara som startvarde för loopstartens skull!
+
+medan inmatat_år inte är noll:
+     skriv_ut "Mata in födelseårtal. För att avsluta, ange talet 0."
+     läs in ett värde från användaren och lagra det i inmatat_år
+     låt alder bli (2020 - inmatat_ar)
+
+     ## För att undvika skönhetsfel med utskriften "Orimligt årtal..."
+     ## då den avslutande nollan matas in måste vi kolla att ålder 
+     ## inte är 2020 vilket den ju lurigt nog blir eftersom 2020 - 0 = 2020
+     ##
+     om alder mindre än noll eller alder är större än 110 och ålder inte är 2020:
+         skriv_ut "Orimligt årtal. Försök igen."
+     annars 
+         om inmatat_år är större än noll:
+              öka antal_år med ett
+              låt summa_år bli summa_år + alder
+              om alder mindre än min_år:
+                  sätt min_år till alder    ### Ny lägsta ålder funnen
+              om alder är större än max_år:
+                  sätt max_år till alder    ### Ny högsta ålder funnen
+ 
+### Om det inmatatde talet var noll trillar vi ur loopen
+
+### Nu är det bara att skriva ut medelvärdet samt yngsta och äldsta
+###
+skriv_ut "Medelaldern är ", summa_år / antal_år, "år."
+skriv_ut "Den yngsta är ", min_år, " och den aldsta är ", max_år
+
+## Klart! :-)
+##---------------------------------------------------------------------------
+
