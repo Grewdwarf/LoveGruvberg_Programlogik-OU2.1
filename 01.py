@@ -3,19 +3,24 @@
 import sys
 from time import sleep
 
-intro = "\n.: Mata in födelsetal/årtal för kanditater i valfri ålder mellan 21 och 87! :.\n\t[ För att avsluta, ange talet 0 ]\n\n\t |\t Försök #1\n"
+intro = '\n.: Mata in födelsetal/årtal för "kanditater" i valfri ålder mellan 21 och 87! :.\n\t [ För att avsluta, ange talet 0 ]\n\n\t |\t Försök #1\t|\n'
 for char in intro:
-    sleep(0.01)
+    sleep(0.02)
     sys.stderr.write(char)
 
-pp = int('2')
+pp = int('2')   # En "försöksräknare" som jag döpte till 'pp' för att den senare (på rad 23) 
+# kommer att bli "Plus-Plus". Räkningen kommer egentligen att börja på 
+# 2a försöket (då jag redan har skrivit Försök #1 "för hand")
 
 
 while True:
-    anno = raw_input("Årtal: ")     # Anno –> Årtal
+    anno = raw_input("Årtal: ")     # anno –> Årtal 
+    # "raw_input" menar att den registrerar användarens input (keyboard-tryck i detta fall) 
+    # Vad skillnaden mellan input och raw_input är vet jag inte riktigt, 
+    # mer än att raw_input är "mer allmän" och fungerar bättre (för mig iallafall!)
     
     ggr = str("\t |\t Försök #")+str(pp)+("\t|\n")
-    pp += int('1')
+    pp += int('1')  # Här blir pp –> Plus-Plus / ++ / += 1
 
     for char in ggr:
         sleep(0.05)
@@ -24,11 +29,11 @@ while True:
     if anno == '0':     # 'Tryck 0 för att avsluta' 
         pp = pp-1
         ggr = str("försök #")+str(pp-1)+(" *\n")
-        avslutar = "\t.:. :.: .:. :.: .:. :.: .:."
+        avslutar = "\a\t.:. :.: .:. :.: .:. :.: .:."
         for char in avslutar:
             sleep(0.03)
             sys.stderr.write(char)
-        print ("\n\t* Avslutat efter "+ggr)
+        print ("\n    * Faktiskt avslut efter "+ggr)
         break   # avslutar
     
     x = int(anno)
@@ -40,11 +45,11 @@ while True:
 
     if anno < '1934': 
         elli = str(1934%x);
-        print (':::::::::::\nFödelsetalet ('+anno+') är ju ' + elli + ' år före än den äldsta kanditaten.');
+        print ('::::::::::.\nFödelsetalet ('+anno+') är ju ' + elli + ' år före än den äldsta kanditaten.');
 
     if anno > '2000': 
         elli = str(-2000%x);
-        print ('\nFödelsetalet ('+anno+') är ju ' + elli + ' år efter den yngsta kandidaten.');
+        print ('::::::::::.\nFödelsetalet ('+anno+') är ju ' + elli + ' år efter den yngsta kandidaten.');
 
     elli = str(2021%x);
     
@@ -56,7 +61,7 @@ while True:
     # äldsta är 87 år.
     if anno == '1934':
         elli = str(2021%x);
-        print ('Då är ' + elli + ' år och äldst.')
+        print ('Denna "kandidat" är ' + elli + ' år och äldst.')
         
     
     # Medelåldern är 49 år.
@@ -66,7 +71,7 @@ while True:
 
     if anno < '1934' or anno > '2000':
         #print ('Fel: Orimligt årtal. Försök igen.')
-        print ("Det räknas alltså inte som ett rimligt årtal.\nFörsök igen!\n")
+        print ("Det räknas alltså inte som ett rimligt årtal.\nFörsök igen!\n\t |\n\t V")
         elli = str(x%2021);
 
 # elli = str(-2021%x);
@@ -88,3 +93,4 @@ while True:
 # date = datum.date()
 # nutid = date.strftime("%Y")
 #print('Året är -> ') + nutid;
+#elli = str(x%2021);
