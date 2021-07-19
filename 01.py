@@ -1,28 +1,46 @@
-#coding=utf-8 
-#import datetime
+#coding=utf-8
 
-print ('\n.: Dags att mata in födelsetal! :.\n\n\t[ För att avsluta, ange talet 0 ]\n');
+import sys
+from time import sleep
+
+intro = "\n.: Mata in födelsetal/årtal för kanditater i valfri ålder mellan 21 och 87! :.\n\t[ För att avsluta, ange talet 0 ]\n\n\t |\t Försök #1\n"
+for char in intro:
+    sleep(0.01)
+    sys.stderr.write(char)
+
+pp = int('2')
+
+
 while True:
-    anno = input("Årtal: ")     # Anno –> Årtal
+    anno = raw_input("Årtal: ")     # Anno –> Årtal
+    
+    ggr = str("\t |\t Försök #")+str(pp)+("\t|\n")
+    pp += int('1')
 
+    for char in ggr:
+        sleep(0.05)
+        sys.stderr.write(char)
 
-
-
-
-
-
-    if anno == '0': break   # Funktionen: 'tryck 0 för att avsluta'
+    if anno == '0':     # 'Tryck 0 för att avsluta' 
+        pp = pp-1
+        ggr = str("försök #")+str(pp-1)+(" *\n")
+        avslutar = "\t.:. :.: .:. :.: .:. :.: .:."
+        for char in avslutar:
+            sleep(0.03)
+            sys.stderr.write(char)
+        print ("\n\t* Avslutat efter "+ggr)
+        break   # avslutar
     
     x = int(anno)
     #x = int(nutid)
 
     elli = str(-2021%x);
     if anno > '2021': 
-        print ('\n.:Födelsetalet ('+anno+') är ' + elli + ' år i in framtiden:.');
+        print ('\n'+anno+' är ' + elli + ' år i in framtiden!');
 
     if anno < '1934': 
         elli = str(1934%x);
-        print ('\nFödelsetalet ('+anno+') är ju ' + elli + ' år före än den äldsta kanditaten.');
+        print (':::::::::::\nFödelsetalet ('+anno+') är ju ' + elli + ' år före än den äldsta kanditaten.');
 
     if anno > '2000': 
         elli = str(-2000%x);
@@ -32,19 +50,19 @@ while True:
     
     # yngsta är 21 år 
     if anno == '2000': 
-        print('Du är ' + elli + ' år och yngst.')
+        print('Den som föddes '+anno+' är ' + elli + ' år och yngst.')
     elli = str(x%2021);
     
     # äldsta är 87 år.
     if anno == '1934':
         elli = str(2021%x);
-        print ('Du är ' + elli + ' år, i sina redigaste år och äldst.')
+        print ('Då är ' + elli + ' år och äldst.')
         
     
-    # Medelåldern är 49 år. 
+    # Medelåldern är 49 år.
     if anno == '1972':
         elli = str(2021%x);
-        print ('\nI ' + elli + '-åringen som befinner sig i medelåldern! +/–\n')
+        print ('Här är årtalet för ' + elli + '-åringen som befinner sig i medelåldern! +/–\n')
 
     if anno < '1934' or anno > '2000':
         #print ('Fel: Orimligt årtal. Försök igen.')
