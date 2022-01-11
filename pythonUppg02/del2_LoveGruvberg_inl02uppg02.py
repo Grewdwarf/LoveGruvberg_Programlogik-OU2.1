@@ -14,17 +14,17 @@ nySida = str('\r'+upp1Rad*13)
 huvudMeny = True            # Allt under loopen 'huvudMeny' återvänder tillbaka 
                             ## till alternativen så länge huvudMeny == True
 while huvudMeny == True:
-    print('.:Meny:.\n'
-    +'\t1. Omvandla decimaltal till binär form.\n\n'
-    +'\t2. Omvandla binärtal till decimal form.\n\n'
-    +'\t3. Avsluta!\n\n\t4. "Jag vet inte..."\n'+linje+'\r')    # Här skrivs alternativen ut.
+    print('.:Menu:.\n'
+    +'\t1. Convert dec number to binary form.\n\n'
+    +'\t2. Convert binary number to decimal form.\n\n'
+    +'\t3. EXIT \n\n\t4. "I dunno..."\n'+linje+'\r')    # Här skrivs alternativen ut.
 
-    val = int(input('\r\nSvar: '))  ## Alternativväljare -> 'val' <- tar emot int-värden från användaren.
+    val = int(input('\r\nYour answer: '))  ## Alternativväljare -> 'val' <- tar emot int-värden från användaren.
     
     # ALTERNATIV 1      (dvs., om användaren anger '1')
     if val == 1:    # Decimaltal till binär form
-        print(upp1Rad + "\t-> Omvandla decimaltal till binär form.")
-        inDec = int(input("\nAnge ett decimaltal: "))
+        print(upp1Rad + "\t-> Convert decimal number to binary form.")
+        inDec = int(input("\nSubmit a decimal number: "))
         def dec2Bin(deNum):       ### Här börjar funktion för binärtal
             biNum = 0           # (hittills) tomma variablar
             pwr = 0             # ( -||- )
@@ -48,7 +48,7 @@ while huvudMeny == True:
             # tillbaka programmet till 'caller'-koden (dvs. till början av kodblocket). 
         decSvar = str(dec2Bin(inDec))
         print(inDec)    # användarens input printas ut.
-        decResultat = str(upp1Rad + str(inDec) + "\t\t <- blir i binärform: "+ decSvar)
+        decResultat = str(upp1Rad + str(inDec) + "\t\t <- has the binary number: "+ decSvar)
         for char in decResultat:    # Min skrivmaskinseffekt.
             sleep(0.05)
             sys.stdout.write(char)
@@ -62,8 +62,8 @@ while huvudMeny == True:
 
     ## ALTERNATIV 2      (om användaren anger '2')
     if val == 2:    ## Val 2 - binär till decimalform   (fungerar som dec2Bin, men åt andra hållet!)
-        print(upp1Rad + "\t-> Omvandla binärtal till decimal form.")
-        inBin = int(input("\nAnge ett binärtal: "))
+        print(upp1Rad + "\t-> Convert binary to decimal form.")
+        inBin = int(input("\nSubmit a binary number: "))
         
         def bin2Dec(biNum):       ### Här börjar funktion för binärtal
             decNum = 0
@@ -76,7 +76,7 @@ while huvudMeny == True:
         binSvar = str(bin2Dec(inBin))
         
         print(inBin)    # användarens input printas ut.
-        binResultat = str(upp1Rad + str(inBin) + "\t\t <- blir i decimalform: "+ binSvar)
+        binResultat = str(upp1Rad + str(inBin) + "\t\t <- has the decimal number: "+ binSvar)
         for char in binResultat:
             sleep(0.05)
             sys.stdout.write(char)
@@ -127,7 +127,7 @@ while huvudMeny == True:
     #### ALTERNATIV 4 (bonusval för den som inte vet vad den vill)
     if val == 4:
         print(linje+"\n\n"
-        + "\t[ Tryck 'ctrl + c' när du har tänkt klart ]\n"
+        + "\t[ Press 'ctrl + c' when you've thought this through ]\n"
         +linje+"\n")
         webbrowser.open('https://www.youtube.com/watch?v=lP85TIFdMD4')
         while True:
